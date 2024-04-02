@@ -1,0 +1,138 @@
+@startuml
+
+
+class Usuario {
+    #String: codigo;
+    #String: nombre;
+    #String: direccion;
+    #String: nombreUsuario;
+    #String: clave;
+    #String: perfil;
+    +Usuario();
+    +getCodigo();
+    +setCodigo();
+    +getNombre();
+    +setNombre();
+    +getDireccion();
+    +setDireccion();
+    +getNombreUsuario();
+    +setNombreUsuario();
+    +getClave();
+    +setClave();
+    +getPerfil();
+    +setPerfil();
+}
+
+class Vendedor {
+    -Int: id;
+    -Date: fechaReclutamiento;
+    -Int: id_lider;
+    -Empresa: empresa;
+    +getId();
+    +getFechaReclutamiento();
+    +setFechaReclutamiento();
+    +getId_lider();
+    +setItem();
+    +getEmpresa();
+    +setEmpresa();
+}
+
+class Asesor {
+    -Int: id;
+    -titulacion: string
+    -fechaInicioTrabajo: date
+    +getId();
+    +getTitulacion();
+    +setTitulacion();
+    +getFechaTrabajo();
+    +setFechaTrabajo();
+}
+
+class Empresa {
+    -Int: id;
+    -String: nombre;
+    -Date: fechaIncorporacion;
+    -Double: facturacionAnual;
+    -Int: numeroVendedores;
+    -Sede:sede;
+    -List<Vendedor> vendedores;
+    
+    
+}
+
+class AsesoresSectores {
+    -Int: id;
+    -Asesor: asesor;
+    -SectorDelMercado: sector;
+}
+
+class HistoricoAsesor {
+    -Int: id;
+    -Empresa: empresa;
+    -Asesor: asesor;
+    -SectorDelMercado: sector;
+    -Date: fechaIncorporacion;
+}
+
+class SectorDelMercado {
+    -Int: id; 
+    -String: nombre;
+    -String: descripcion;
+}
+
+class SectoresEmpresas {
+    -Int: id;
+    -Empresa: empresa;
+    -SectorDelMercado: sector;
+
+}
+
+class PaisesOperacion {
+    -Int: id;
+    -Empresa: empresa;
+    -Pais: pais;
+}
+
+class Pais {
+    -Int: id;
+    -String: nombre;
+    -Double: productoInternoBruto;
+    -Int: poblacion;
+    -String: capital;
+    -Sede: sede;
+}
+
+class Ciudad {
+    -Int: id;
+    -String: nombre
+    -In: idCiudad;
+    -Sede: sede;
+}
+
+class Sede {
+    -Int: id;
+    -String: nombre;
+    -Empresa: empresa;
+    -Ciudad: ciudad;
+    -Pais: pais;
+}
+
+Empresa "1" -- "*" Vendedor: Trabaja en
+Vendedor "1" *-- "1" Vendedor: Recluta
+Vendedor --|> Usuario
+Asesor --|> Usuario
+Asesor "1" *-- "0..*" Empresa
+Empresa "1" --* "1" Sede
+Empresa "*" --* "1..*" SectorDelMercado
+(Empresa, SectorDelMercado) .. SectoresEmpresas
+HistoricoAsesor "1" -- "1" Asesor
+HistoricoAsesor "1" -- "1" Empresa
+HistoricoAsesor "1" -- "1" SectorDelMercado
+Asesor "*" --* "*" SectorDelMercado
+(Asesor, SectorDelMercado) .. AsesoresSectores
+Empresa "*" --* "1..*" Pais
+(Empresa, Pais) .. PaisesOperacion
+Ciudad "1" *-- "1" Sede
+Pais "1" *-- "1" Sede
+
+@enduml
