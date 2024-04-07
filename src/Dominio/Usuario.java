@@ -2,74 +2,79 @@ package Dominio;
 
 public class Usuario {
 
-    private String codigo;
+    private String identificacion;
     private String nombre;
     private String direccion;
     private String usuario;
     private String clave;
     private String perfil;
-    
-    public Usuario(String codigo,String nombre,String direccion,String usuario,String clave,String perfil){
-    this.codigo = codigo;
-    this.nombre =  nombre;
-    this.direccion = direccion;
-    this.usuario = usuario;
-    this.clave = clave;
-    this.perfil = perfil;
+
+    public Usuario() {
     }
-    
-    public String getCodigo(){
-    return codigo; 
+
+    public Usuario(String identificacion, String nombre, String direccion, String usuario, String clave,
+            String perfil) {
+        this.identificacion = identificacion;
+        this.nombre = nombre;
+        this.direccion = direccion;
+        this.usuario = usuario;
+        this.clave = clave;
+        this.perfil = perfil;
     }
-    
-    public void set(String codigo){
-    this.codigo = codigo;
+
+    public String getIdentificacion() {
+        return identificacion;
     }
-    
-    public String getNombre(){
-    return nombre; 
+
+    public void set(String codigo) {
+        this.identificacion = codigo;
     }
-    
-    public void setNombre(String nombre){
-    this.nombre = nombre;
+
+    public String getNombre() {
+        return nombre;
     }
-    
-    public String getDireccion(){
-    return direccion; 
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
-    
-    public void setDireccion(String direccion){
-    this.direccion = direccion;
+
+    public String getDireccion() {
+        return direccion;
     }
-    
-    public String getUsuario(){
-    return usuario; 
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
-    
-    public void setUsuario(String usuario){
-    this.usuario = usuario;
+
+    public String getUsuario() {
+        return usuario;
     }
-    
-    public String getClave(){
-    return clave; 
+
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
-    
-    public void setClave(String clave){
-    this.clave = clave;
+
+    public String getClave() {
+        return clave;
     }
-    
-    public String getPerfil(){
-    return perfil; 
+
+    public void setClave(String clave) {
+        this.clave = clave;
     }
-    
-    public void setPerfil(String perfil){
-    this.perfil = perfil;
+
+    public String getPerfil() {
+        return perfil;
+    }
+
+    public void setPerfil(String perfil) {
+        this.perfil = perfil;
     }
 
     @Override
     public String toString() {
-        return "Usuario{" + "codigo=" + codigo + ", nombre=" + nombre + ", direccion=" + direccion + ", usuario=" + usuario + ", clave=" + clave + ", perfil=" + perfil + '}';
+        return "Usuario{" + "identificacion=" + identificacion + ", nombre=" + nombre + ", direccion=" + direccion
+                + ", usuario="
+                + usuario + ", clave=" + clave + ", perfil=" + perfil + '}';
     }
-    
-   
+
 }
