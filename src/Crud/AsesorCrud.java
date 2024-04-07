@@ -1,10 +1,9 @@
 
 package Crud;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-
-import javax.naming.NameNotFoundException;
 
 import Customs.CustomErrorMessage;
 import Dominio.Asesor;
@@ -18,7 +17,7 @@ public class AsesorCrud implements ICrudModel<Asesor> {
     public void Agregar(Asesor object) {
         try {
             if (validarExistencia(object))
-                throw new Exception("Error: " + CustomErrorMessage.GetAlreadyExistsError());
+                throw new Exception("Error: " + CustomErrorMessage.GetAlreadyExistsErrorMessage());
 
             asesores.put(object.getIdentificacion(), object);
 
@@ -35,7 +34,7 @@ public class AsesorCrud implements ICrudModel<Asesor> {
             asesor = asesores.get(object.getIdentificacion());
 
             if (asesor == null)
-                throw new Exception("Error: " + CustomErrorMessage.GetNotFoundError());
+                throw new Exception("Error: " + CustomErrorMessage.GetNotFoundErrorMessage());
 
             return asesor;
         } catch (Exception e) {
@@ -63,21 +62,35 @@ public class AsesorCrud implements ICrudModel<Asesor> {
     public boolean Eliminar(Asesor object) {
         try {
             if (!validarExistencia(object))
-                throw new Exception("Error: " + CustomErrorMessage.GetNotFoundErrorMessage() + ". En " + this.getClass().getName());
+                throw new Exception(
+                        "Error: " + CustomErrorMessage.GetNotFoundErrorMessage() + ". En la clase " + this.getClass().getName());
 
             asesores.remove(object.getIdentificacion());
 
-
+            return true;
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
+            return false;
         }
     }
 
     @Override
     public List<Asesor> ListarTodo() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'ListarTodo'");
+        ArrayList<Asesor> asesoresList = null;
+        try {
+
+            asesoresList = (ArrayList<Asesor>) asesores.values();
+
+            if (asesoresList == null)
+                throw new Exception("Error: " + CustomErrorMessage.GetNotFoundErrorMessage());
+
+            return asesoresList;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+        return asesoresList;
     }
 
     @Override
@@ -97,8 +110,20 @@ public class AsesorCrud implements ICrudModel<Asesor> {
 
     @Override
     public int Contar() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'Contar'");
+        int cantidadAsesores = 0;
+        try {
+
+            cantidadAsesores = asesores.size();
+
+            if (cantidadAsesores == 0)
+                throw new Exception(
+                        "Error: " + CustomErrorMessage.GetNotFoundErrorMessage() + ". En " + this.getClass().getName());
+
+            return cantidadAsesores;
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            return cantidadAsesores;
+        }
     }
 
 }

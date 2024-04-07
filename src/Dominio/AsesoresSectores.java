@@ -6,25 +6,36 @@ public class AsesoresSectores {
     private int id;
     private Asesor asesor;
     private SectorDelMercado sector;
-    
-    public AsesoresSectores(Asesor asesor, SectorDelMercado sector){
-    this.asesor = asesor;
-    this.sector = sector;
+
+    public AsesoresSectores(Asesor asesor, SectorDelMercado sector) {
+        this.asesor = asesor;
+        this.sector = sector;
     }
+
+
     
-    public Asesor getAsesor(){
-    return asesor;
+    public int getId() {
+        return id;
     }
-    
-    public void setAsesor(Asesor asesor){
-    this.asesor = asesor;
+
+    public void setId(int id) {
+        this.id = id;
     }
-    
-    public SectorDelMercado getSector(){
-    return sector;
+
+    public Asesor getAsesor() {
+        return asesor;
     }
-    
-    public void getSector(SectorDelMercado sector){
-    this.sector = sector;
+
+    public void setAsesor(Asesor asesor) {
+        this.asesor = asesor;
     }
+
+    public SectorDelMercado getSector() {
+        return sector;
+    }
+
+    public void setSector(SectorDelMercado sector) {
+        this.sector = sector;
+    }
+
 }
