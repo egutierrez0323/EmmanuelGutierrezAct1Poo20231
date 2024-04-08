@@ -9,13 +9,6 @@ public class Asesor extends Usuario {
     private String titulacion;
     private Date fechaInicioTrabajo;
 
-    // private String identificacion
-    // private String nombre
-    // private String direccion
-    // private String usuario
-    // private String clave
-    // private String perfil
-
     public Asesor() {
         super();
     }
@@ -26,6 +19,14 @@ public class Asesor extends Usuario {
         this.titulacion = titulacion;
         this.fechaInicioTrabajo = fechaInicioTrabajo;
 
+    }
+
+    public void getIdentificacion(String identificacion) {
+        super.getIdentificacion();
+    }
+
+    public void setIdentificacion(String identificacion) {
+        super.setIdentificacion(identificacion);
     }
 
     public String getTitulacion() {
@@ -47,6 +48,10 @@ public class Asesor extends Usuario {
     @Override
     public String toString() {
         return "Asesor{" + "titulacion=" + titulacion + ", fechaInicioTrabajo=" + fechaInicioTrabajo + '}';
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
 }

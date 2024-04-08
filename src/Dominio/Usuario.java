@@ -10,6 +10,7 @@ public class Usuario {
     private String perfil;
 
     public Usuario() {
+
     }
 
     public Usuario(String identificacion, String nombre, String direccion, String usuario, String clave,
@@ -26,7 +27,7 @@ public class Usuario {
         return identificacion;
     }
 
-    public void set(String codigo) {
+    public void setIdentificacion(String codigo) {
         this.identificacion = codigo;
     }
 

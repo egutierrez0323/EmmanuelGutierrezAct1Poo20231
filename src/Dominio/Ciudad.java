@@ -7,6 +7,9 @@ public class Ciudad {
     private int idCiudad;
     private Sede sede;
 
+    public Ciudad() {
+    }
+
     public Ciudad(String nombre, int idCiudad, Sede sede) {
         this.idCiudad = idCiudad;
         this.nombre = nombre;
@@ -33,9 +36,9 @@ public class Ciudad {
         return sede;
     }
 
-    // public void setSede(Sede sede) {
-    // this.sede = sede;
-    // }
+    public void setSede(Sede sede) {
+    this.sede = sede;
+    }
 
     @Override
     public String toString() {

@@ -4,18 +4,18 @@ import java.util.List;
 
 public interface ICrudModel<Generic> {
 
-    public void Agregar(Generic object);
+    public void Agregar(Generic object) throws Exception;
 
-    public Generic Buscar(Generic object);
+    public Generic Buscar(Generic object) throws Exception;
 
-    public boolean Editar(Generic object);
+    public boolean Editar(Generic object) throws Exception;
 
-    public boolean Eliminar(Generic object);
+    public boolean Eliminar(Generic object) throws Exception;
 
-    public List<Generic> ListarTodo();
+    public List<Generic> ListarTodo() throws Exception;
 
-    public boolean validarExistencia(Generic object);
+    public boolean validarExistencia(Generic object) throws Exception;
 
-    public int Contar();
+    public int Contar() throws Exception;
 
 }

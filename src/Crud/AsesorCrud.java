@@ -14,7 +14,7 @@ public class AsesorCrud implements ICrudModel<Asesor> {
     private HashMap<String, Asesor> asesores;
 
     @Override
-    public void Agregar(Asesor object) {
+    public void Agregar(Asesor object) throws Exception {
         try {
             if (validarExistencia(object))
                 throw new Exception("Error: " + CustomErrorMessage.GetAlreadyExistsErrorMessage());
@@ -27,7 +27,7 @@ public class AsesorCrud implements ICrudModel<Asesor> {
     }
 
     @Override
-    public Asesor Buscar(Asesor object) {
+    public Asesor Buscar(Asesor object) throws Exception {
         Asesor asesor = new Asesor();
         try {
 
@@ -45,8 +45,7 @@ public class AsesorCrud implements ICrudModel<Asesor> {
     }
 
     @Override
-    public boolean Editar(Asesor object) {
-
+    public boolean Editar(Asesor object) throws Exception {
         try {
             Asesor asesor = Buscar(object);
             asesores.put(object.getIdentificacion(), asesor);
@@ -59,7 +58,7 @@ public class AsesorCrud implements ICrudModel<Asesor> {
     }
 
     @Override
-    public boolean Eliminar(Asesor object) {
+    public boolean Eliminar(Asesor object) throws Exception {
         try {
             if (!validarExistencia(object))
                 throw new Exception(
@@ -76,7 +75,7 @@ public class AsesorCrud implements ICrudModel<Asesor> {
     }
 
     @Override
-    public List<Asesor> ListarTodo() {
+    public List<Asesor> ListarTodo() throws Exception {
         ArrayList<Asesor> asesoresList = null;
         try {
 
@@ -94,8 +93,7 @@ public class AsesorCrud implements ICrudModel<Asesor> {
     }
 
     @Override
-    public boolean validarExistencia(Asesor object) {
-
+    public boolean validarExistencia(Asesor object) throws Exception {
         try {
             boolean existeAsesor = asesores.containsKey(object.getIdentificacion());
 
@@ -109,7 +107,7 @@ public class AsesorCrud implements ICrudModel<Asesor> {
     }
 
     @Override
-    public int Contar() {
+    public int Contar() throws Exception {
         int cantidadAsesores = 0;
         try {
 

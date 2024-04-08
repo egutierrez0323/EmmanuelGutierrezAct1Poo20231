@@ -14,6 +14,9 @@ public class Empresa {
     private Sede sede;
     private List<Vendedor> vendedores;
 
+    public Empresa() {
+    }
+
     public Empresa(String nombre, Date fechaIncorporacion, double facturacionAnual, int numeroVendedores, Sede sede,
             Vendedor vendedor) {
         this.nombre = nombre;
@@ -23,6 +26,18 @@ public class Empresa {
         this.sede = sede;
         this.vendedores.add(vendedor);
 
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setSede(Sede sede) {
+        this.sede = sede;
     }
 
     public String getNombre() {
